@@ -1,0 +1,4 @@
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faAddressBook,faAddressCard, faCommentDots, faBell, faClipboardCheck, faCloud, faStar, faCog, faUserPlus, faUsers, faSearch, faColumns, faImage, faPaperclip, faCropAlt, faClock, faLaughWink, faPaperPlane, faTired, faCommentMedical, faPenSquare, faStopwatch, faExclamationTriangle, faEyeSlash, faTrash , faCircle } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faAddressBook,faAddressCard, faCommentDots, faBell, faClipboardCheck, faCloud, faStar, faCog, faUserPlus, faUsers, faSearch, faColumns, faImage, faPaperclip, faCropAlt, faClock, faLaughWink, faPaperPlane, faTired, faCommentMedical, faPenSquare, faStopwatch, faExclamationTriangle, faEyeSlash, faTrash, faCircle )

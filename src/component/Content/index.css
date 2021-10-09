@@ -1,0 +1,53 @@
+/* Modal Content */
+.modal-content {
+    display: none;
+    overflow: auto;
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    right: -40%;
+    top: 10px;
+    background-color: #3f3c3c;
+    color: azure;
+    margin-left: auto;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 20%;
+    height: 10%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   
+}
+
+.modal-content-show-hide{
+    display: block;
+    /* right: 50px; */
+    animation-name: animaterightshowhide;
+    animation-duration: 5s;
+    /* animation-delay: 1.5s; */
+}
+
+
+@keyframes animaterightshowhide {
+    0% {right: -40%; opacity: 0; display: none;}
+    25% {right: -20%; opacity: 0.5; display: block;}
+    50% {right: 50px; opacity: 1; display: block;}
+    75% {right: -20px; opacity: 0.5; display: block;}
+    100% {right: -40%; opacity: 0; display: none;}
+  }
+
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}

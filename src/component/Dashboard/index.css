@@ -1,0 +1,15 @@
+.span-online{
+    color: rgb(20, 223, 47);
+    position: absolute;
+    bottom: 0.4rem;
+    right: 20%;
+    font-size: x-small;
+}
+
+.span-offline{
+    color: rgb(247, 115, 8);
+    position: absolute;
+    bottom: 0.4rem;
+    right: 20%;
+    font-size: x-small;
+}

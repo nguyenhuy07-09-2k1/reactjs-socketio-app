@@ -1,0 +1,52 @@
+
+
+.selected-user{
+    background-color: rgba(199, 199, 199, 0.3)
+}
+.user-other{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    height: 100%;
+    margin-top: 0.1rem;
+}
+
+.user-self{
+    display: flex;
+    flex-direction: row;
+    margin-top: 0.1rem;
+    margin-bottom: 0.2rem;
+    max-width: 100%;
+}
+
+.badge {
+    position: absolute;
+    font-size: small;
+    top: 0px;
+    right: 0px;
+    padding: 1px 5px;
+    border-radius: 50%;
+    background: rgb(226, 33, 33);
+    color: white;
+    margin-left: auto;
+  }
+
+.span-username{
+    display: block;
+    margin: 0.1rem 0;
+    max-width: 100%;
+}
+
+.truncate{
+    position: absolute;
+    top: 0;
+    color: rgb(139, 133, 133);
+    font-size: small;
+    margin-bottom: 5px;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 85%;
+}

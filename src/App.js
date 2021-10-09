@@ -1,24 +1,39 @@
-import logo from './logo.svg';
 import './App.css';
+import Chat from "./component/Chat";
+import React from 'react';
+import Home from "./component/Home";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "./component/FontAwesomeIcon";
+import io from "socket.io-client";
+const ENDPOINT = "https://reactjs-socketio-app.herokuapp.com/";
+
+const socket = io.connect(ENDPOINT);
+
+function Appmain(props) {
+  return (
+    <React.Fragment>
+      <div className="right">
+        <Chat
+          socket={socket}
+        />
+      </div>
+    </React.Fragment>
+  );
+}
+
 
 function App() {
   return (
+    <Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Switch>
+        <Route path="/" exact>
+          <Home socket={socket} />
+        </Route>
+        <Route path="/chat" component={ Appmain } />
+      </Switch>
     </div>
+  </Router>
   );
 }
 
