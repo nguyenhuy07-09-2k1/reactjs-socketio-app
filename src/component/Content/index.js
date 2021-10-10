@@ -3,6 +3,23 @@ import './index.css'
 import { to_Decrypt, to_Encrypt } from "../../ase";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { StoreContext } from '../../store';
+import { formatDistanceToNowStrict, parseISO } from 'date-fns';
+import styled from 'styled-components';
+const WrapMessage = styled.div`
+        position: absolute;
+        left: 0;
+        top: 4.5rem;
+        width: 100%;
+        height: 72%;
+        background-image: url("/assets/background_chat.jpg");
+        background-position: stretch;
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: blur(2px);
+        z-index: 2;
+   
+}`
+
 export default function Content({ socket }) {
 
     const [text, setText] = useState("");
@@ -74,8 +91,8 @@ export default function Content({ socket }) {
                     setSelectUser({ ...newSelect });
                     setText("");
                 }
-                else{
-                    alert("Khoan chờ khoản chừng 2s. Bạn chưa chọn ai đó để nhắn cùng 😜😜");
+                else {
+                    alert("Khoan dừng khoảng chừng 2s. Bạn chưa chọn ai đó để nhắn cùng😜😜");
                 }
                 //encrypt the message here
 
@@ -94,7 +111,9 @@ export default function Content({ socket }) {
             <div className={`${i.fromSelf ? 'div-message' : 'other-div-message'}`}>
                 <span className={`${i.fromSelf ? 'span-message-user' : 'other-span-message-user'}`}> {!i.fromSelf ? i.username : i.username}</span>
                 <span >{i.message}</span>
+                <span className="timestamp-message">{formatDistanceToNowStrict(parseISO(i.timestamp))}</span>
             </div>
+           
 
         </div>
     )
@@ -133,7 +152,10 @@ export default function Content({ socket }) {
                     <div id="split-icon-btn" className="icon-header"><FontAwesomeIcon icon="columns" /></div>
                 </div>
             </div>
-            <div className="wrap-message" >
+            <WrapMessage >
+                
+            </WrapMessage>
+            <div className="wrap-message">
                 {renderMess}
                 <div ref={messagesEndRef} />
             </div>

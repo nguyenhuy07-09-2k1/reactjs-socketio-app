@@ -29,7 +29,6 @@ export default function Contact({ socket }) {
     const { select } = useContext(StoreContext);
     const [selectUser, setSelectUser] = select;
     const initReactiveProperties = (user) => {
-        user.connected = true;
         user.messages = [];
         user.hasNewMessages = false;
         user.countNewMessage = 0;
@@ -39,10 +38,19 @@ export default function Contact({ socket }) {
         (user) => {
 
             if (!user.self) {
-                setSelectUser(user);
-                setusernameAlreadySelected(true);
-                user.hasNewMessages = false;
-                user.countNewMessage = 0;
+                if(user.connected){
+                    setSelectUser(user);
+                    setusernameAlreadySelected(true);
+                    user.hasNewMessages = false;
+                    user.countNewMessage = 0;
+                }
+                else{
+                    alert("Khoan dừng khoảng chừng 2s. Người ta off rùi mà nhấn quài nhớ người ta hay gì🤪🤪🤪")
+                }
+               
+            }
+            else{
+                alert("Khoan dừng khoảng chừng 2s. Ai đâu mà tự nhắn với chính mình🥴🥴")
             }
         },
         [setSelectUser],
@@ -87,8 +95,9 @@ export default function Contact({ socket }) {
                 for (let i = 0; i < User.slice().length; i++) {
                     const index = User.slice().findIndex(users => users.id === user.id);
                     if (index > -1) {
-                        let addNewUser = users.slice();
+                        let addNewUser = User.slice();
                         addNewUser[index].connected = user.connected;
+                        setUser([...addNewUser]);
                         return;
                     }
                 }

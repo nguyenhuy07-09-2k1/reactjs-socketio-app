@@ -5,9 +5,10 @@ import Home from "./component/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./component/FontAwesomeIcon";
 import io from "socket.io-client";
-const ENDPOINT = "https://reactjs-socketio-app.herokuapp.com/";
+// const ENDPOINT = "https://reactjs-socketio-app.herokuapp.com/";
+const ENDPOINT = "http://localhost:5000/";
 
-const socket = io.connect(ENDPOINT);
+const socket = io(ENDPOINT, { transports : ['websocket'] });
 
 function Appmain(props) {
   return (

@@ -5,13 +5,15 @@ import './index.css'
 export default function Dashboard() {
     const { users } = useContext(StoreContext)
     const [User] = users;
+
+    const index  = User.slice().findIndex(user => user.self)
     return (
         <div className="dashboard">
             
             <div className="wrap-avatar">
                 <div className="avatar">
                     <img src={`${process.env.PUBLIC_URL}/assets/HinhZalo.jpg`} alt="Avatar" className="avatar-img" />
-                    <FontAwesomeIcon className={User?.at(0)?.connected ? "span-online" : "span-offline"} icon={"circle"}></FontAwesomeIcon>
+                    <FontAwesomeIcon className={  index > -1  ? "span-online" : "span-offline"} icon={"circle"}></FontAwesomeIcon>
                 </div>
             </div>
 
